@@ -34,6 +34,7 @@ void SLevelSelectorCameraOverlay::Construct(const FArguments& InArgs)
 	ChildSlot
 	[
 		SNew(SOverlay)
+		.Visibility(this, &SLevelSelectorCameraOverlay::GetOverlayVisibility)
 		+ SOverlay::Slot()
 		.HAlign(HAlign_Right)
 		.VAlign(VAlign_Top)
@@ -147,6 +148,11 @@ void SLevelSelectorCameraOverlay::Construct(const FArguments& InArgs)
 UBDC_LevelSelectorSettings* SLevelSelectorCameraOverlay::GetSettings() const
 {
 	return GetMutableDefault<UBDC_LevelSelectorSettings>();
+}
+
+EVisibility SLevelSelectorCameraOverlay::GetOverlayVisibility() const
+{
+	return GetDefault<UBDC_LevelSelectorSettings>()->bEnableCameraFavorites ? EVisibility::Visible : EVisibility::Collapsed;
 }
 
 void SLevelSelectorCameraOverlay::GetCurrentLevelSoftPtr(TSoftObjectPtr<UWorld>& OutLevelPtr) const

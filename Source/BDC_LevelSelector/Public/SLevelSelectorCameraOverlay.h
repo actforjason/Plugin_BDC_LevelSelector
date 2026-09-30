@@ -27,6 +27,7 @@ public:
 
 private:
 	UBDC_LevelSelectorSettings* GetSettings() const;
+	EVisibility GetOverlayVisibility() const;
 	void GetCurrentLevelSoftPtr(TSoftObjectPtr<UWorld>& OutLevelPtr) const;
 	
 	FReply OnAddClicked();

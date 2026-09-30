@@ -50,6 +50,10 @@ public:
 	/** Returns a Level's Tag. */
 	FGameplayTag GetLevelTag(UWorld* TargetedLevel);
 	
+	/** Shows the Camera Favorites overlay in the level viewport. */
+	UPROPERTY(Config, EditAnywhere, Category = "Camera Favorites")
+	bool bEnableCameraFavorites = true;
+
 	/** Holds the Camera favorites per Level.*/
 	UPROPERTY(Config, EditAnywhere, Category = "Camera Favorites")
 	TMap<TSoftObjectPtr<UWorld>, FCameraFavorite> HoldFavorites;
